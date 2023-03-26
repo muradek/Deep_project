@@ -4,3 +4,7 @@ TACO-master/
 jupyter-lab.sh
 py-sbatch.sh
 commands.txt
+*json
+*pt
+*jpg
+*JPG

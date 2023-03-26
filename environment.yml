@@ -5,12 +5,12 @@ channels:
   - defaults
 dependencies:
   # common
-  - pillow
-  - requests
+  - pillow >=7.1.2
+  - requests>=2.23.0
   - jupyter
-  - numpy
+  - numpy >=1.21.6
   - pandas
-  - matplotlib
+  - matplotlib >=3.2.2
   - seaborn
   - graphviz
   - Cython
@@ -22,10 +22,12 @@ dependencies:
   - pytest-xdist
   - python=3.8.12
   - scikit-learn
-  - scipy
+  - scipy >=1.4.1
   - swig # needed to compile box2d
-  - tqdm
+  - tqdm >=4.64.0
   - pip:
+    - roboflow
+    - ultralytics
     - nbmerge
     - torchviz
   # pytorch
@@ -34,10 +36,10 @@ dependencies:
   - pytorch=1.10.1
   - mkl<2022 # prevents crash when importing torch on M1 mac via rosetta2
   - cudatoolkit
-  - torchvision
+  - torchvision >=0.8.1
   - torchtext
-  - opencv
-  - pyyaml
+  - opencv >=4.6.0
+  - pyyaml >=5.3.1
   - shapely
   - pyqt
   
