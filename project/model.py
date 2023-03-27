@@ -14,11 +14,18 @@ def load_from_roboflow():
     return dataset
 
 # initializing a YOLOv8 model and running it on our dataset
-def run_yolo_model(dataset):
-    print("started YOLO")
-    model = YOLO('yolov8n.pt') # initializing a pre-trained YOLOv8 model # change to yolov8x.pt
-    train_results = model.train(data="/home/muradek/Deep_project/TACO-train_test-1/data.yaml", epochs=25, imgsz=640) # training the model
-    val_results = model.val(data="/home/muradek/Deep_project/TACO-train_test-1/data.yaml") # metrics # evaluate model performance on the validation set
-    pred_results = model.predict(source="/home/muradek/Deep_project/TACO-train_test-1/test/images")
-    print("finished YOLO")
-    return train_results, val_results, pred_results
+def set_model(dataset, model_version):
+    print("started setting" + model_version)
+    model = YOLO(model_version) # initializing a pre-trained YOLOv8 model # change to yolov8x.pt
+    data = str(dataset.location) + "/data.yaml"
+    train_results = model.train(data=data, epochs=50, imgsz=640, patience=25, batch=2) # training the model
+    val_results = model.val(data=data) # metrics # evaluate model performance on the validation set
+    print("finished YOLO setting")
+    return model, train_results, val_results
+
+def pred(model, dataset):
+    print("started testing")
+    source = str(dataset.location) + "/test/images"
+    pred_results = model.predict(source=source, save=True)
+    print("finished predicting")
+    return pred_results
