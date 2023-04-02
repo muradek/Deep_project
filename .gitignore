@@ -1,6 +1,10 @@
 project/try.py
+
 TACO-master/
 TACO-train_test-1/
+TACO_train_only-1
+TACO_test_set-1
+
 runs/
 .ipynb_checkpoints/
 project/__pycache__/
