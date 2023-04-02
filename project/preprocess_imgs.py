@@ -1,6 +1,6 @@
 import os
 
-# change directory structure and images names to fit roboflow
+# change directory structure and images names before uploading to roboflow
 
 # --1-- all images are added to the same directory with unique names
 # annotaion files were adjusted to the new naming

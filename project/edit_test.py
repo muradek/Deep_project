@@ -1,7 +1,12 @@
 import os
 from pycocotools.coco import COCO
 
-coco = COCO('/home/muradek/Deep_project/project/annotations_test.json')
+# editing test_set s.t model.val(test_set) will produce
+# annotation.json file that fits cocoEval() comparison
+
+annotations_path = os.getcwd() + "/project/annotations_test.json"
+print(annotations_path)
+coco = COCO(annotations_path)
 img_ids = coco.getImgIds()
 
 def get_image_id(img_name):
@@ -13,7 +18,7 @@ def get_image_id(img_name):
     return id
 
 def edit_images_name():
-    img_dir = '/home/muradek/Deep_project/TACO_test_set-1/valid/images'
+    img_dir = os.getcwd() + "/TACO_test_set-1/valid/images"
     for full_img_name in os.listdir(img_dir):
         file_name = (full_img_name.split("_jpg")[0]) + ".jpg" # the name that appears in the json file
         id = get_image_id(file_name)
@@ -22,13 +27,11 @@ def edit_images_name():
             id = get_image_id(file_name)
         
         old_path = img_dir + "/" + full_img_name
-        new_path = img_dir + "/" +str(id) + ".jpg"
-        # print(old_path)
-        # print(new_path)
+        new_path = img_dir + "/" + str(id) + ".jpg"
         os.rename(old_path, new_path)
 
 def edit_labels_name():
-    lbl_dir = '/home/muradek/Deep_project/TACO_test_set-1/valid/labels'
+    lbl_dir = os.getcwd() + "/TACO_test_set-1/valid/labels"
     for full_lbl_name in os.listdir(lbl_dir):
         file_name = (full_lbl_name.split("_jpg")[0]) + ".jpg" # the name that appears in the json file
         id = get_image_id(file_name)
@@ -38,9 +41,7 @@ def edit_labels_name():
         
         old_path = lbl_dir + "/" + full_lbl_name
         new_path = lbl_dir + "/" + str(id) + ".txt"
-        # print(old_path)
-        # print(new_path)
         os.rename(old_path, new_path)
 
-edit_images_name()
+# edit_images_name()
 edit_labels_name()
