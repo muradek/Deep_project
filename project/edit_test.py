@@ -9,6 +9,7 @@ print(annotations_path)
 coco = COCO(annotations_path)
 img_ids = coco.getImgIds()
 
+# find the id of an img based on its name
 def get_image_id(img_name):
     id = -1
     for img_id in img_ids:
@@ -43,5 +44,5 @@ def edit_labels_name():
         new_path = lbl_dir + "/" + str(id) + ".txt"
         os.rename(old_path, new_path)
 
-# edit_images_name()
+edit_images_name()
 edit_labels_name()

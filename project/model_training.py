@@ -20,7 +20,7 @@ def load_datasets():
 def set_model(train_set, model_version):
     model = YOLO(model_version) # initializing a pre-trained YOLOv8 model
     data = str(train_set.location) + "/data.yaml"
-    train_results = model.train(data=data, epochs=3, imgsz=640, patience=2, batch=2) # training the model
+    train_results = model.train(data=data, epochs=100, imgsz=640, patience=2, batch=2) # training the model
     return model, train_results
 
 # evaluate the model on our test_set
