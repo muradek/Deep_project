@@ -4,6 +4,8 @@ TACO-master/
 TACO-train_test-1/
 TACO_train_only-1
 TACO_test_set-1
+TACO_test_set-2
+check_testset.ipynb
 
 runs/
 .ipynb_checkpoints/

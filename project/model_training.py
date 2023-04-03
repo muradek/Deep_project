@@ -12,9 +12,10 @@ def load_datasets():
     train_set = train_project.version(1).download("yolov8")
     # load the test set
     test_project = rf.workspace("technion-fl2u0").project("taco_test_set")
-    test_set = test_project.version(1).download("yolov8")
+    # test_set = test_project.version(1).download("yolov8")
+    test_set_2 = test_project.version(2).download("yolov8")
 
-    return train_set, test_set
+    return train_set, test_set_2
 
 # initialize and custom train a YOLOv8 model
 def set_model(train_set, model_version):
