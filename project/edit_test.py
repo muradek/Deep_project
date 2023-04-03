@@ -19,7 +19,7 @@ def get_image_id(img_name):
     return id
 
 def edit_images_name():
-    img_dir = os.getcwd() + "/TACO_test_set-2/valid/images"
+    img_dir = os.getcwd() + "/TACO_test_set-3/valid/images"
     for full_img_name in os.listdir(img_dir):
         file_name = (full_img_name.split("_jpg")[0]) + ".jpg" # the name that appears in the json file
         id = get_image_id(file_name)
@@ -32,7 +32,7 @@ def edit_images_name():
         os.rename(old_path, new_path)
 
 def edit_labels_name():
-    lbl_dir = os.getcwd() + "/TACO_test_set-2/valid/labels"
+    lbl_dir = os.getcwd() + "/TACO_test_set-3/valid/labels"
     for full_lbl_name in os.listdir(lbl_dir):
         file_name = (full_lbl_name.split("_jpg")[0]) + ".jpg" # the name that appears in the json file
         id = get_image_id(file_name)
