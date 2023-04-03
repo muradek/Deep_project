@@ -1,7 +1,7 @@
 from roboflow import Roboflow
 from ultralytics import YOLO
 
-# code is base on roboflow titorial for YOLOv8
+# code is base on roboflow tutorial for YOLOv8
 # https://blog.roboflow.com/how-to-train-yolov8-on-a-custom-dataset/
 
 # load our datasets from roboflow
