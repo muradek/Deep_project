@@ -43,5 +43,5 @@ def edit_labels_name():
         new_path = lbl_dir + "/" + str(id) + ".txt"
         os.rename(old_path, new_path)
 
-edit_images_name()
+# edit_images_name()
 edit_labels_name()
