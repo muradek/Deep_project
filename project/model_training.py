@@ -1,9 +1,6 @@
 from roboflow import Roboflow
 from ultralytics import YOLO
 
-# code is base on roboflow titorial for YOLOv8
-# https://blog.roboflow.com/how-to-train-yolov8-on-a-custom-dataset/
-
 # load our datasets from roboflow
 def load_datasets():
     rf = Roboflow(api_key="BQwCglXoth5FSTCCWMZF")
@@ -12,7 +9,6 @@ def load_datasets():
     train_set = train_project.version(1).download("yolov8")
     # load the test set
     test_project = rf.workspace("technion-fl2u0").project("taco_test_set")
-    # test_set = test_project.version(1).download("yolov8")
     test_set_3 = test_project.version(3).download("yolov8")
 
     return train_set, test_set_3
